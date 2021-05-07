@@ -6,7 +6,12 @@ public final class Bag {
   private final Invitation invitation;
   private Ticket ticket;
 
-  public Bag(Invitation invitation) {
+  public Bag(Long amount) {
+    this(null, amount);
+  }
+
+  public Bag(Invitation invitation, long amount) {
+    this.amount = amount;
     this.invitation = invitation;
   }
 
