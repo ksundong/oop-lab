@@ -1,6 +1,7 @@
 package movie;
 
 import java.time.Duration;
+import movie.discountpolicy.DiscountPolicy;
 
 public class Movie {
 

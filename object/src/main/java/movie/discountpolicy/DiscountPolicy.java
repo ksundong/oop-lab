@@ -1,7 +1,9 @@
-package movie;
+package movie.discountpolicy;
 
 import java.util.Arrays;
 import java.util.List;
+import movie.Money;
+import movie.Screening;
 import movie.discountcondition.DiscountCondition;
 
 public abstract class DiscountPolicy {
