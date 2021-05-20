@@ -2,6 +2,7 @@ package movie;
 
 import java.util.Arrays;
 import java.util.List;
+import movie.discountcondition.DiscountCondition;
 
 public abstract class DiscountPolicy {
 

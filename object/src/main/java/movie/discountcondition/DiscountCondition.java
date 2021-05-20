@@ -1,4 +1,6 @@
-package movie;
+package movie.discountcondition;
+
+import movie.Screening;
 
 public interface DiscountCondition {
 
