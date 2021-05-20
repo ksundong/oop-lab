@@ -33,4 +33,8 @@ public final class Screening {
   public LocalDateTime getWhenScreened() {
     return whenScreened;
   }
+
+  public boolean isSequence(int sequence) {
+    return this.sequence == sequence;
+  }
 }
