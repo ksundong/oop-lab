@@ -1,7 +1,6 @@
 package movie;
 
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 
 public final class Screening {
 
@@ -41,5 +40,9 @@ public final class Screening {
 
   public LocalDateTime getStartTime() {
     return whenScreened;
+  }
+
+  public Money getMovieFee() {
+    return movie.getFee();
   }
 }
