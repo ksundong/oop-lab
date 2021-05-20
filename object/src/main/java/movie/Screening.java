@@ -1,6 +1,7 @@
 package movie;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 public final class Screening {
 
@@ -36,5 +37,9 @@ public final class Screening {
 
   public boolean isSequence(int sequence) {
     return this.sequence == sequence;
+  }
+
+  public LocalDateTime getStartTime() {
+    return whenScreened;
   }
 }
