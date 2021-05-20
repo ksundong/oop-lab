@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class Money {
 
-  private static final Money ZERO = Money.wons(0);
+  public static final Money ZERO = Money.wons(0);
 
   private final BigDecimal amount;
 
