@@ -6,7 +6,7 @@ import movie.Money;
 import movie.Screening;
 import movie.discountcondition.DiscountCondition;
 
-public abstract class DefaultDiscountPolicy {
+public abstract class DefaultDiscountPolicy implements DiscountPolicy {
 
   private final List<DiscountCondition> conditions;
 
@@ -14,6 +14,7 @@ public abstract class DefaultDiscountPolicy {
     this.conditions = Arrays.asList(conditions);
   }
 
+  @Override
   public Money calculateDiscountAmount(Screening screening) {
     for (DiscountCondition each : conditions) {
       if (each.isSatisfiedBy(screening)) {
