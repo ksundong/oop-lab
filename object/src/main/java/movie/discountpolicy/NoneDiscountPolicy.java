@@ -3,10 +3,10 @@ package movie.discountpolicy;
 import movie.Money;
 import movie.Screening;
 
-public class NoneDiscountPolicy extends DefaultDiscountPolicy {
+public class NoneDiscountPolicy implements DiscountPolicy {
 
   @Override
-  protected Money getDiscountAmount(Screening screening) {
+  public Money calculateDiscountAmount(Screening screening) {
     return Money.ZERO;
   }
 }
