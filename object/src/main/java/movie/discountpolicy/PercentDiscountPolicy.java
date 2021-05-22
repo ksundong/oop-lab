@@ -4,7 +4,7 @@ import movie.Money;
 import movie.Screening;
 import movie.discountcondition.DiscountCondition;
 
-public class PercentDiscountPolicy extends DiscountPolicy {
+public class PercentDiscountPolicy extends DefaultDiscountPolicy {
 
   private final double percent;
 

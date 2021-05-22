@@ -6,11 +6,11 @@ import movie.Money;
 import movie.Screening;
 import movie.discountcondition.DiscountCondition;
 
-public abstract class DiscountPolicy {
+public abstract class DefaultDiscountPolicy {
 
   private final List<DiscountCondition> conditions;
 
-  protected DiscountPolicy(DiscountCondition... conditions) {
+  protected DefaultDiscountPolicy(DiscountCondition... conditions) {
     this.conditions = Arrays.asList(conditions);
   }
 
