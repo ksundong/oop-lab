@@ -11,10 +11,10 @@ repositories {
 
 dependencies {
     // 참고: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test/2.4.5
-    testImplementation 'org.junit.jupiter:junit-jupiter-api'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    testImplementation 'org.assertj:assertj-core'
-    testImplementation 'org.hamcrest:hamcrest'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+    testImplementation 'org.assertj:assertj-core:3.19.0'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
     testImplementation 'org.mockito:mockito-core:3.6.28'
     testImplementation 'org.mockito:mockito-junit-jupiter:3.6.28'
 }
