@@ -13,15 +13,13 @@ class MovieIntegrationTest {
   @DisplayName("할인 되지 않는 영화 생성")
   void createNoneDiscountMovie() {
     // given
-    Money fee = Money.wons(10000);
-
     // when
     Movie starWars = new Movie("스타워즈",
         Duration.ofMinutes(210),
-        fee,
+        Money.wons(10000),
         new NoneDiscountPolicy());
 
     // then
-    assertThat(starWars.getFee()).isEqualTo(fee);
+    assertThat(starWars.getFee()).isEqualTo(Money.wons(10000));
   }
 }
