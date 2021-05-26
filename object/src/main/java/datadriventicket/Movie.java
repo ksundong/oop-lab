@@ -1,6 +1,7 @@
 package datadriventicket;
 
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 import movie.Money;
 
@@ -15,59 +16,47 @@ public class Movie {
   private Money discountAmount;
   private double discountPercent;
 
-  public String getTitle() {
-    return title;
+  public Money calculateAmountDiscountedFee() {
+    if (movieType != MovieType.AMOUNT_DISCOUNT) {
+      throw new IllegalArgumentException();
+    }
+
+    return fee.minus(discountAmount);
   }
 
-  public void setTitle(String title) {
-    this.title = title;
+  public Money calculatePercentDiscountedFee() {
+    if (movieType != MovieType.PERCENT_DISCOUNT) {
+      throw new IllegalArgumentException();
+    }
+
+    return fee.minus(fee.times(discountPercent));
   }
 
-  public Duration getDuration() {
-    return duration;
-  }
+  public Money calculateNoneDiscountedFee() {
+    if (movieType != MovieType.NONE_DISCOUNT) {
+      throw new IllegalArgumentException();
+    }
 
-  public void setDuration(Duration duration) {
-    this.duration = duration;
-  }
-
-  public Money getFee() {
     return fee;
   }
 
-  public void setFee(Money fee) {
-    this.fee = fee;
-  }
+  public boolean isDiscountable(LocalDateTime whenScreened, int sequence) {
+    for (DiscountCondition discountCondition : discountConditions) {
+      if (discountCondition.getType() == DiscountConditionType.PERIOD) {
+        if (discountCondition.isDiscountable(whenScreened.getDayOfWeek(), whenScreened.toLocalTime())) {
+          return true;
+        }
+      } else {
+        if (discountCondition.isDiscountable(sequence)) {
+          return true;
+        }
+      }
+    }
 
-  public List<DiscountCondition> getDiscountConditions() {
-    return discountConditions;
-  }
-
-  public void setDiscountConditions(List<DiscountCondition> discountConditions) {
-    this.discountConditions = discountConditions;
+    return false;
   }
 
   public MovieType getMovieType() {
     return movieType;
-  }
-
-  public void setMovieType(MovieType movieType) {
-    this.movieType = movieType;
-  }
-
-  public Money getDiscountAmount() {
-    return discountAmount;
-  }
-
-  public void setDiscountAmount(Money discountAmount) {
-    this.discountAmount = discountAmount;
-  }
-
-  public double getDiscountPercent() {
-    return discountPercent;
-  }
-
-  public void setDiscountPercent(double discountPercent) {
-    this.discountPercent = discountPercent;
   }
 }
